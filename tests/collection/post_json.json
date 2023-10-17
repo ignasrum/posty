@@ -1,0 +1,9 @@
+{
+    "url": "https://httpbin.org/post",
+    "method": "POST",
+    "url_params": {},
+    "json": {"name": "morpheus", "job": "leader"},
+    "auth": {},
+    "files": [],
+    "headers": {}
+}

@@ -1,0 +1,9 @@
+{
+    "url": "https://httpbin.org/bearer",
+    "method": "GET",
+    "url_params": {},
+    "json": {},
+    "auth": {},
+    "files": [],
+    "headers": {"Authorization": "Bearer {bearer_token}"}
+}

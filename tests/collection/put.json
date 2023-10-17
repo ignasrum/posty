@@ -1,0 +1,9 @@
+{
+    "url": "https://httpbin.org/put",
+    "method": "PUT",
+    "url_params": {"name": "morpheus", "job": "leader"},
+    "json": {"name": "morpheus", "job": "leader"},
+    "auth": {},
+    "files": [],
+    "headers": {}
+}

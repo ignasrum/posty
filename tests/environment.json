@@ -1,0 +1,5 @@
+{
+    "bearer_token": "testing_bearer",
+    "test": "hello",
+    "logger_py": "./posty/logger.py"
+}

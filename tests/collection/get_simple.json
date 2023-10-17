@@ -1,0 +1,9 @@
+{
+    "url": "https://dog.ceo/api/breeds/list/all",
+    "method": "GET",
+    "url_params": {},
+    "json": {},
+    "auth": {},
+    "files": [],
+    "headers": {}
+}
