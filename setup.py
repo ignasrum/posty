@@ -13,10 +13,8 @@ setup(
     packages=['posty',
               'posty.enum'],
     python_requires='>=3.10',
-    install_requires=['argparse',
-                      'requests',
-                      'pillow',
-                      'pytest'],
+    install_requires=['requests',
+                      'pillow'],
     entry_points = {
         'console_scripts': ['posty=posty.__main__:main'],
     }
