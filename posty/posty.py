@@ -16,7 +16,7 @@ class Posty:
 
     def _populate_string_from_env(self, string, env):
         return string.format(**env)
-    
+
     def _populate_list_from_env(self, listi, env):
         for index, value in enumerate(listi):
             if type(value) == str:
@@ -35,7 +35,7 @@ class Posty:
             else:
                 print("ERROR: UNKNOWN DATA STRUCTURE IN JSON")
         return dicti
-    
+
     def load_json(self, file_path):
         req = json.loads(open(file_path, "r").read())
         return req
@@ -57,7 +57,12 @@ class Posty:
             headers=req["headers"]
         )
 
-    def request(self, url, method, url_params=None, json=None, auth=None, files={}, headers={}):
+    def request(self, url, method, url_params=None, json=None, auth=None, files=[], headers={}, timeout=5):
+        url_params = None if isinstance(url_params, dict) and len(url_params) == 0 else url_params
+        json = None if isinstance(json, dict) and len(json) == 0 else json
+        auth = None if isinstance(auth, dict) and len(auth) == 0 else auth
+        files = None if isinstance(files, list) and len(files) == 0 else files
+        headers = None if isinstance(headers, dict) and len(headers) == 0 else headers
         response = requests.request(
             method=method,
             url=url,
@@ -65,7 +70,8 @@ class Posty:
             json=json,
             files=files,
             auth=auth,
-            headers=headers)
+            headers=headers,
+            timeout=timeout)
         logger.log_request(response.request)
         print("\n")
         logger.log_time(response.elapsed)
