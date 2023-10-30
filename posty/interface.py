@@ -51,7 +51,7 @@ class VersionAction(Action):
 
 def main():
     """
-    Main function for user interface. Parses arguments and starts a pipeline if one is selected.
+    Main function for user interface.
 
     Returns
     -------

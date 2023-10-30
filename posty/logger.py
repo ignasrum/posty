@@ -27,11 +27,11 @@ class Logger:
                 img.show()
             case ContentType.MULTIPART.value:
                 print("MULTIPART")
-            case ContentType.URL_ENCODE:
+            case ContentType.URL_ENCODE.value:
                 print(data)
-            case ContentType.TEXT_HTML:
+            case ContentType.TEXT_HTML.value:
                 print(data)
-            case ContentType.TEXT_PLAIN:
+            case ContentType.TEXT_PLAIN.value:
                 print(data)
             case _:
                 print(f"Unexpected data type: {content_type}")
