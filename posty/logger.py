@@ -16,25 +16,24 @@ def print_purple(skk): print("\033[95m{}\033[00m".format(skk))
 class Logger:
     def log_data(self, data, content_type):
         print_green("Data:")
-        match content_type:
-            case ContentType.JSON.value:
-                json_data = json.loads(data.decode("utf8"))
-                json_formatted = json.dumps(json_data, indent=4)
-                print(f"{json_formatted}")
-            case ContentType.JPEG.value:
-                print("JPEG")
-                img = Image.open(io.BytesIO(data))
-                img.show()
-            case ContentType.MULTIPART.value:
-                print("MULTIPART")
-            case ContentType.URL_ENCODE.value:
-                print(data)
-            case ContentType.TEXT_HTML.value:
-                print(data)
-            case ContentType.TEXT_PLAIN.value:
-                print(data)
-            case _:
-                print(f"Unexpected data type: {content_type}")
+        if content_type.startswith(ContentType.JSON.value):
+            json_data = json.loads(data.decode("utf8"))
+            json_formatted = json.dumps(json_data, indent=4)
+            print(f"{json_formatted}")
+        elif content_type.startswith(ContentType.JPEG.value):
+            print("JPEG")
+            img = Image.open(io.BytesIO(data))
+            img.show()
+        elif content_type.startswith(ContentType.MULTIPART.value):
+            print("MULTIPART")
+        elif content_type.startswith(ContentType.URL_ENCODE.value):
+            print(data)
+        elif content_type.startswith(ContentType.TEXT_HTML.value):
+            print(data)
+        elif content_type.startswith(ContentType.TEXT_PLAIN.value):
+            print(data)
+        else:
+            print(f"Unexpected data type: {content_type}")
 
     def log_request(self, request):
         print_yellow("Request:")
